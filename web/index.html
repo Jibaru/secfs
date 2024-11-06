@@ -22,11 +22,39 @@
       </label>
     </div>
 
-    <label for="key">Key:</label>
-    <input type="text" id="key" placeholder="mykey" /><br />
+    <div class="radio-group">
+      <label>
+        <input
+          type="radio"
+          name="encryptionType"
+          value="aes"
+          checked
+          onchange="toggleEncryptionInputs()"
+        />
+        AES-128-GCM
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="encryptionType"
+          value="custom"
+          onchange="toggleEncryptionInputs()"
+        />
+        Custom Encryption
+      </label>
+    </div>
 
-    <label for="rotation">Rotation:</label>
-    <input type="number" id="rotation" value="0" min="0" /><br />
+    <div id="customEncryptionInputs" style="display: none">
+      <label for="key">Key:</label>
+      <input type="text" id="key" placeholder="mykey" /><br />
+      <label for="rotation">Rotation:</label>
+      <input type="number" id="rotation" value="0" min="0" /><br />
+    </div>
+
+    <div id="aesEncryptionInputs">
+      <label for="aesKey">Secret Key:</label>
+      <input type="text" id="aesKey" placeholder="AES secret key" /><br />
+    </div>
 
     <button onclick="processFile()">Process</button>
 
